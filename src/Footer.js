@@ -1,6 +1,19 @@
 import styled from "styled-components"
+import certo from "./assets/img/icone_certo.png"
+import quase from "./assets/img/icone_quase.png"
+import errado from "./assets/img/icone_erro.png"
 
 export default function Footer(){
+    return (
+        <FinishedFooter>
+            <p>0/4 CONCLUÍDOS</p>
+            <ButtonContainer>
+                <img src={certo}/>
+                <img src={quase}/>
+                <img src={errado}/>
+            </ButtonContainer>
+        </FinishedFooter>
+    )
 
 }
 
@@ -20,10 +33,12 @@ const FinishedFooter = styled.div`
   color: #333333;
   padding: 10px;
 
-  ContainerBotoes {
+`
+
+const ButtonContainer = styled.div`
     display: flex;
     width: 80%;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 5px;
     margin: 20px;
-  }
-`
+  `

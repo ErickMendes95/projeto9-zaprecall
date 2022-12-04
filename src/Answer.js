@@ -5,9 +5,6 @@ import seta from "./assets/img/seta_virar.png"
 
 export default function Answer({data}){
     const [answerVisible, setAnswerVisible] = useState(false)
-    const [corVerde, setCorVerde] = useState("#2FBE34")
-    const [corAmarelo, setCorAmarelo] = useState("#FF922E")
-    const [corVermelho, setCorVermelho] = useState("#FF3030")
 
     function showAnswer(){
         setAnswerVisible(true)
