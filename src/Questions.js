@@ -42,11 +42,13 @@ const ClosedQuestion = styled.div`
   align-items: center;
   justify-content: space-between;
   button{
+    display:flex;
     background: white;
     border: none;
     z-index: 1
   }
   img{
+    display: flex;
     z-index: 0;
   }
 `
