@@ -4,10 +4,10 @@ import quase from "./assets/img/icone_quase.png"
 import errado from "./assets/img/icone_erro.png"
 
 
-export default function Footer({contador}){
+export default function Footer({count}){
     return (
         <FinishedFooter>
-            <p>{contador}/4 CONCLUÍDOS</p>
+            <p>{count}/4 CONCLUÍDOS</p>
             <ButtonContainer>
                 {/* <img src={certo}/>
                 <img src={quase}/>

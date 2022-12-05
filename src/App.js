@@ -7,16 +7,16 @@ import { useState } from "react";
 
 
 export default function App() {
-  const [contador, setContador] = useState(0)
+  const [count, setCount] = useState(0)
 
   
   return (
     <ScreenContainer>
       <Logo/>
       {deck.slice(0,4).map((item, index) => (
-        <Questions contador={contador} setContador={setContador} questionNumber={index + 1} data={item} key={index}/>
+        <Questions count={count} setCount={setCount} questionNumber={index + 1} data={item} key={index}/>
       ))}
-      <Footer contador={contador}/>
+      <Footer count={count}/>
     </ScreenContainer>
   )
 }

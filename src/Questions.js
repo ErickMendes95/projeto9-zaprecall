@@ -3,7 +3,7 @@ import seta from "./assets/img/seta_play.png"
 import { useState } from "react";
 import Answer from "./Answer";
 
-export default function Questions ({questionNumber, data, contador, setContador}) {
+export default function Questions ({questionNumber, data, count, setCount}) {
     
     const [questionVisible, setQuestionVisible] = useState(false)
     const [answerType, setAnswerType] = useState("")
@@ -22,7 +22,7 @@ export default function Questions ({questionNumber, data, contador, setContador}
                     <button disabled={disabled}><img src={questionIcon} onClick={() => showQuestion()}/></button>
                 </ClosedQuestion>
                 :
-                <Answer data={data} setDisabled={setDisabled} contador={contador} setContador={setContador} setQuestionVisible={setQuestionVisible} 
+                <Answer data={data} setDisabled={setDisabled} count={count} setCount={setCount} setQuestionVisible={setQuestionVisible} 
                 setAnswerType={setAnswerType} setQuestionIcon={setQuestionIcon}/>
             }
         </>
