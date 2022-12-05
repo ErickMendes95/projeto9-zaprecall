@@ -43,7 +43,7 @@ const ClosedQuestion = styled.div`
   justify-content: space-between;
   button{
     background: white;
-    border: none;
+    border: white;
   }
 `
   const CustomH1 = styled.h1`
