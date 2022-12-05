@@ -22,11 +22,11 @@ export default function Answer({data,contador, setDisabled ,setContador, setQues
       }
 
       if(result === "success")
-      setQuestionIcon("./assets/img/icone_certo.png")
+      setQuestionIcon(success)
       else if(result === "almost") {
-        setQuestionIcon("./assets/img/icone_quase.png")
+        setQuestionIcon(almost)
       } else if(result === "error") {
-        setQuestionIcon("./assets/img/icone_erro.png")
+        setQuestionIcon(error)
       }
     }
 

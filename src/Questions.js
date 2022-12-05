@@ -4,6 +4,7 @@ import { useState } from "react";
 import Answer from "./Answer";
 
 export default function Questions ({questionNumber, data, contador, setContador}) {
+    
     const [questionVisible, setQuestionVisible] = useState(false)
     const [answerType, setAnswerType] = useState("")
     const [questionIcon, setQuestionIcon] = useState(seta)
@@ -40,6 +41,10 @@ const ClosedQuestion = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  button{
+    background: white;
+    border: none;
+  }
 `
   const CustomH1 = styled.h1`
     font-family: 'Recursive';

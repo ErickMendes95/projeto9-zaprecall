@@ -9,9 +9,9 @@ export default function Footer({contador}){
         <FinishedFooter>
             <p>{contador}/4 CONCLUÍDOS</p>
             <ButtonContainer>
-                <img src={certo}/>
+                {/* <img src={certo}/>
                 <img src={quase}/>
-                <img src={errado}/>
+                <img src={errado}/> */}
             </ButtonContainer>
         </FinishedFooter>
     )
