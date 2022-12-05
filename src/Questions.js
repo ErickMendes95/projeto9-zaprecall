@@ -46,6 +46,9 @@ const ClosedQuestion = styled.div`
     border: none;
     z-index: 1
   }
+  img{
+    z-index: 0;
+  }
 `
   const CustomH1 = styled.h1`
     font-family: 'Recursive';
