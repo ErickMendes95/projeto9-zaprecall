@@ -8,7 +8,7 @@ export default function Questions ({questionNumber, data, count, setCount}) {
     const [questionVisible, setQuestionVisible] = useState(false)
     const [answerType, setAnswerType] = useState("")
     const [questionIcon, setQuestionIcon] = useState(seta)
-    const [disabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(false)
 
     function showQuestion(){
         setQuestionVisible(true)
@@ -43,6 +43,8 @@ const ClosedQuestion = styled.div`
   justify-content: space-between;
   button{
     background: white;
+    border: none;
+    z-index: 1
   }
 `
   const CustomH1 = styled.h1`
