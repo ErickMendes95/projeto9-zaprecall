@@ -5,7 +5,7 @@ import error from "./assets/img/icone_erro.png"
 import almost from "./assets/img/icone_quase.png"
 import success from "./assets/img/icone_certo.png"
 
-export default function Answer({data, setQuestionVisible, setAnswerType, setQuestionIcon}){
+export default function Answer({data,contador, setDisabled ,setContador, setQuestionVisible, setAnswerType, setQuestionIcon}){
     const [answerVisible, setAnswerVisible] = useState(false)
 
     function showAnswer(){
@@ -15,8 +15,12 @@ export default function Answer({data, setQuestionVisible, setAnswerType, setQues
     function answerFinished(e){
       setQuestionVisible(false)
       let result = e.id
-      console.log(result)
       setAnswerType(result)
+      setDisabled(true)
+      if(contador < 4){
+        setContador(contador + 1)
+      }
+
       if(result === "success")
       setQuestionIcon("./assets/img/icone_certo.png")
       else if(result === "almost") {

@@ -3,11 +3,11 @@ import seta from "./assets/img/seta_play.png"
 import { useState } from "react";
 import Answer from "./Answer";
 
-export default function Questions ({questionNumber, data}) {
-       
+export default function Questions ({questionNumber, data, contador, setContador}) {
     const [questionVisible, setQuestionVisible] = useState(false)
     const [answerType, setAnswerType] = useState("")
     const [questionIcon, setQuestionIcon] = useState(seta)
+    const [disabled, setDisabled] = useState(false)
 
     function showQuestion(){
         setQuestionVisible(true)
@@ -18,10 +18,10 @@ export default function Questions ({questionNumber, data}) {
             {questionVisible === false ?
                 <ClosedQuestion>
                     <CustomH1 type={answerType}>Pergunta {questionNumber}</CustomH1>
-                    <CustomImg src={questionIcon} onClick={() => showQuestion()}/>
+                    <button disabled={disabled}><img src={questionIcon} onClick={() => showQuestion()}/></button>
                 </ClosedQuestion>
                 :
-                <Answer data={data} setQuestionVisible={setQuestionVisible} 
+                <Answer data={data} setDisabled={setDisabled} contador={contador} setContador={setContador} setQuestionVisible={setQuestionVisible} 
                 setAnswerType={setAnswerType} setQuestionIcon={setQuestionIcon}/>
             }
         </>
@@ -53,8 +53,4 @@ const ClosedQuestion = styled.div`
     color: ${props => props.type === "success" ? "#2FBE34" : ""};
     color: ${props => props.type === "almost" ? "#FF922E" : ""};
     color: ${props => props.type === "error" ? "#FF3030" : ""}; 
-`
-
-const CustomImg = styled.img`
-
 `

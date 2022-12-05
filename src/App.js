@@ -3,18 +3,20 @@ import Logo from "./Logo";
 import Questions from "./Questions"
 import Footer from "./Footer";
 import deck from "./deck"
+import { useState } from "react";
+
 
 export default function App() {
-
+  const [contador, setContador] = useState(0)
 
   
   return (
     <ScreenContainer>
       <Logo/>
       {deck.slice(0,4).map((item, index) => (
-        <Questions questionNumber={index + 1} data={item} key={index}/>
+        <Questions contador={contador} setContador={setContador} questionNumber={index + 1} data={item} key={index}/>
       ))}
-      <Footer/>
+      <Footer contador={contador}/>
     </ScreenContainer>
   )
 }
