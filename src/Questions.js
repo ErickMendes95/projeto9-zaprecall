@@ -19,7 +19,7 @@ export default function Questions ({questionNumber, data, count, setCount}) {
             {questionVisible === false ?
                 <ClosedQuestion>
                     <CustomH1 type={answerType}>Pergunta {questionNumber}</CustomH1>
-                    <button disabled={disabled}><img src={questionIcon} onClick={() => showQuestion()}/></button>
+                    <button disabled={disabled}><img src={questionIcon} disabled={disabled} onClick={() => showQuestion()}/></button>
                 </ClosedQuestion>
                 :
                 <Answer data={data} setDisabled={setDisabled} count={count} setCount={setCount} setQuestionVisible={setQuestionVisible} 
