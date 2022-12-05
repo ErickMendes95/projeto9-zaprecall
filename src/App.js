@@ -6,12 +6,12 @@ import deck from "./deck"
 
 export default function App() {
 
-  
+
   
   return (
     <ScreenContainer>
       <Logo/>
-      {deck.map((item, index) => (
+      {deck.slice(0,4).map((item, index) => (
         <Questions questionNumber={index + 1} data={item} key={index}/>
       ))}
       <Footer/>

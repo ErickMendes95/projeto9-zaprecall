@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import {BsCaretRight} from "react-icons/bs"
+import seta from "./assets/img/seta_play.png"
 import { useState } from "react";
 import Answer from "./Answer";
 
-export default function Questions ({questionNumber, data}) {   
+export default function Questions ({questionNumber, data}) {
+       
     const [questionVisible, setQuestionVisible] = useState(false)
-    
-    
+    const [answerType, setAnswerType] = useState("")
+    const [questionIcon, setQuestionIcon] = useState(seta)
+
     function showQuestion(){
         setQuestionVisible(true)
     }
@@ -15,11 +17,12 @@ export default function Questions ({questionNumber, data}) {
         <>
             {questionVisible === false ?
                 <ClosedQuestion>
-                    <h1>Pergunta {questionNumber}</h1>
-                    <BsCaretRight size={32} onClick={() => showQuestion()}/>
+                    <CustomH1 type={answerType}>Pergunta {questionNumber}</CustomH1>
+                    <CustomImg src={questionIcon} onClick={() => showQuestion()}/>
                 </ClosedQuestion>
                 :
-                <Answer data={data}/>
+                <Answer data={data} setQuestionVisible={setQuestionVisible} 
+                setAnswerType={setAnswerType} setQuestionIcon={setQuestionIcon}/>
             }
         </>
     )
@@ -37,13 +40,21 @@ const ClosedQuestion = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  p {
+`
+  const CustomH1 = styled.h1`
     font-family: 'Recursive';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    color: #333333;
-  }
+    text-decoration: ${props => props.type === "success" ? "line-through" : ""};
+    text-decoration: ${props => props.type === "almost" ?  "line-through" : ""};
+    text-decoration: ${props => props.type === "error" ?   "line-through" : ""};
+    color: ${props => props.type === "success" ? "#2FBE34" : ""};
+    color: ${props => props.type === "almost" ? "#FF922E" : ""};
+    color: ${props => props.type === "error" ? "#FF3030" : ""}; 
+`
+
+const CustomImg = styled.img`
+
 `

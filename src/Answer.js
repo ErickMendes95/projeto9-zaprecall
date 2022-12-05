@@ -1,13 +1,29 @@
 import styled from "styled-components";
 import { useState } from "react";
 import seta from "./assets/img/seta_virar.png"
+import error from "./assets/img/icone_erro.png"
+import almost from "./assets/img/icone_quase.png"
+import success from "./assets/img/icone_certo.png"
 
-
-export default function Answer({data}){
+export default function Answer({data, setQuestionVisible, setAnswerType, setQuestionIcon}){
     const [answerVisible, setAnswerVisible] = useState(false)
 
     function showAnswer(){
         setAnswerVisible(true)
+    }
+
+    function answerFinished(e){
+      setQuestionVisible(false)
+      let result = e.id
+      console.log(result)
+      setAnswerType(result)
+      if(result === "success")
+      setQuestionIcon("./assets/img/icone_certo.png")
+      else if(result === "almost") {
+        setQuestionIcon("./assets/img/icone_quase.png")
+      } else if(result === "error") {
+        setQuestionIcon("./assets/img/icone_erro.png")
+      }
     }
 
     return (
@@ -21,9 +37,9 @@ export default function Answer({data}){
             <OpenQuestion>
                 <p>{data.answer}</p>
                 <ButtonContainer>
-                    <button id="one">Não lembrei</button>
-                    <button id="two">Quase Lembrei</button>
-                    <button id="three">Zap!</button>
+                    <button id="error"   onClick={(e) => answerFinished(e.target)}>Não lembrei</button>
+                    <button id="almost"  onClick={(e) => answerFinished(e.target)}>Quase Lembrei</button>
+                    <button id="success" onClick={(e) => answerFinished(e.target)}>Zap!</button>
                 </ButtonContainer>
             </OpenQuestion>
         }   
@@ -80,14 +96,14 @@ const ButtonContainer = styled.div`
     border: 1px solid white;
     padding:5px;
   }
-  #one {
+  #error {
     background: #FF3030
   }
 
-  #two {
+  #almost {
     background: #FF922E
   }
-  #three{
+  #success {
     background: #2FBE34
   }
   `
