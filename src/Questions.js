@@ -17,9 +17,9 @@ export default function Questions ({questionNumber, data, count, setCount}) {
     return (
         <>
             {questionVisible === false ?
-                <ClosedQuestion>
-                    <CustomH1 type={answerType}>Pergunta {questionNumber}</CustomH1>
-                    <button disabled={disabled}><img src={questionIcon} disabled={disabled} onClick={() => showQuestion()}/></button>
+                <ClosedQuestion data-test="flashcard">
+                    <CustomH1 type={answerType} data-test="flashcard-text">Pergunta {questionNumber}</CustomH1>
+                    <button disabled={disabled}><img src={questionIcon} onClick={() => showQuestion()} data-test="play-btn"/></button>
                 </ClosedQuestion>
                 :
                 <Answer data={data} setDisabled={setDisabled} count={count} setCount={setCount} setQuestionVisible={setQuestionVisible} 
@@ -42,14 +42,8 @@ const ClosedQuestion = styled.div`
   align-items: center;
   justify-content: space-between;
   button{
-    display:flex;
     background: white;
     border: none;
-    z-index: 1
-  }
-  img{
-    display: flex;
-    z-index: 0;
   }
 `
   const CustomH1 = styled.h1`

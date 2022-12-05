@@ -34,16 +34,16 @@ export default function Answer({data,count, setDisabled ,setCount, setQuestionVi
         <>
         {answerVisible === false ? 
             <OpenQuestion>
-                <p>{data.question}</p>
-                <img src={seta} onClick={() => showAnswer()}/>
+                <p data-test="flashcard-text">{data.question}</p>
+                <img data-test="turn.btn" src={seta} onClick={() => showAnswer()}/>
             </OpenQuestion>
             :
             <OpenQuestion>
-                <p>{data.answer}</p>
+                <p data-test="flashcard-text">{data.answer}</p>
                 <ButtonContainer>
-                    <button id="error"   onClick={(e) => answerFinished(e.target)}>Não lembrei</button>
-                    <button id="almost"  onClick={(e) => answerFinished(e.target)}>Quase Lembrei</button>
-                    <button id="success" onClick={(e) => answerFinished(e.target)}>Zap!</button>
+                    <button data-test="no-btn" id="error"   onClick={(e) => answerFinished(e.target)}>Não lembrei</button>
+                    <button data-test="partial-btn" id="almost"  onClick={(e) => answerFinished(e.target)}>Quase Lembrei</button>
+                    <button data-test="zap-btn" id="success" onClick={(e) => answerFinished(e.target)}>Zap!</button>
                 </ButtonContainer>
             </OpenQuestion>
         }   
